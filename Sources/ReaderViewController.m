@@ -816,6 +816,11 @@
 			[mailComposer addAttachmentData:attachment mimeType:@"application/pdf" fileName:fileName];
 
 			[mailComposer setSubject:fileName]; // Use the document file name for the subject
+            
+            if (self.custEmailAddress.length > 0)
+            {
+                [mailComposer setToRecipients:[NSArray arrayWithObject:self.custEmailAddress]];
+            }
 
 			mailComposer.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
 			mailComposer.modalPresentationStyle = UIModalPresentationFormSheet;
