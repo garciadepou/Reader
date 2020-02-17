@@ -435,23 +435,6 @@
 	[super viewDidDisappear:animated];
 }
 
-- (void)viewDidUnload
-{
-#ifdef DEBUG
-	NSLog(@"%s", __FUNCTION__);
-#endif
-
-	mainToolbar = nil; mainPagebar = nil;
-
-	theScrollView = nil; contentViews = nil; lastHideTime = nil;
-
-	documentInteraction = nil; printInteraction = nil;
-
-	lastAppearSize = CGSizeZero; currentPage = 0;
-
-	[super viewDidUnload];
-}
-
 - (BOOL)prefersStatusBarHidden
 {
 	return YES;
@@ -462,29 +445,27 @@
 	return UIStatusBarStyleLightContent;
 }
 
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
+- (BOOL)shouldAutorotate
 {
-	return YES;
+    return YES;
 }
 
-- (void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration
+- (void)viewWillTransitionToSize:(CGSize)size withTransitionCoordinator:(id<UIViewControllerTransitionCoordinator>)coordinator
 {
-	if (userInterfaceIdiom == UIUserInterfaceIdiomPad) if (printInteraction != nil) [printInteraction dismissAnimated:NO];
-
-	ignoreDidScroll = YES;
-}
-
-- (void)willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation duration:(NSTimeInterval)duration
-{
-	if (CGSizeEqualToSize(theScrollView.contentSize, CGSizeZero) == false)
-	{
-		[self updateContentViews:theScrollView]; lastAppearSize = CGSizeZero;
-	}
-}
-
-- (void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation
-{
-	ignoreDidScroll = NO;
+    [super viewWillTransitionToSize:size withTransitionCoordinator:coordinator];
+    [coordinator animateAlongsideTransition:^(id<UIViewControllerTransitionCoordinatorContext>  _Nonnull context) {
+        if (self->userInterfaceIdiom == UIUserInterfaceIdiomPad) if (self->printInteraction != nil) [self->printInteraction dismissAnimated:NO];
+        self->ignoreDidScroll = YES;
+        
+        if (CGSizeEqualToSize(self->theScrollView.contentSize, CGSizeZero) == false)
+        {
+            [self updateContentViews:self->theScrollView]; self->lastAppearSize = CGSizeZero;
+        }
+        
+    } completion:^(id<UIViewControllerTransitionCoordinatorContext>  _Nonnull context) {
+        self->ignoreDidScroll = NO;
+    }];
+    
 }
 
 - (void)didReceiveMemoryWarning

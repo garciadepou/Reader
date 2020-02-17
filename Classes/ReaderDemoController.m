@@ -125,21 +125,14 @@
 	[super viewDidDisappear:animated];
 }
 
-- (void)viewDidUnload
+- (BOOL)shouldAutorotate
 {
-#ifdef DEBUG
-	NSLog(@"%s", __FUNCTION__);
-#endif
-
-	[super viewDidUnload];
-}
-
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
-{
-	if ([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPhone) // See README
-		return UIInterfaceOrientationIsPortrait(interfaceOrientation);
-	else
-		return YES;
+    UIInterfaceOrientation orientation = [[UIApplication sharedApplication] statusBarOrientation];
+    
+    if ([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPhone) // See README
+        return UIInterfaceOrientationIsPortrait(orientation);
+    else
+        return YES;
 }
 
 /*

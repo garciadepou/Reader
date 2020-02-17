@@ -285,7 +285,8 @@
 
 						NSString *target = [NSString stringWithCString:uri encoding:NSUTF8StringEncoding]; // NSString - UTF8
 
-						linkTarget = [NSURL URLWithString:[target stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
+						//linkTarget = [NSURL URLWithString:[target stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
+                        linkTarget = [NSURL URLWithString:[target stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLHostAllowedCharacterSet]]];
 
 						if (linkTarget == nil) NSLog(@"%s Bad URI '%@'", __FUNCTION__, target);
 					}
@@ -479,7 +480,7 @@
 			}
 			else // Error out with a diagnostic
 			{
-				CGPDFDocumentRelease(_PDFDocRef), _PDFDocRef = NULL;
+                (void)(CGPDFDocumentRelease(_PDFDocRef)), _PDFDocRef = NULL;
 
 				NSAssert(NO, @"CGPDFPageRef == NULL");
 			}
@@ -512,9 +513,9 @@
 
 - (void)dealloc
 {
-	CGPDFPageRelease(_PDFPageRef), _PDFPageRef = NULL;
+    (void)(CGPDFPageRelease(_PDFPageRef)), _PDFPageRef = NULL;
 
-	CGPDFDocumentRelease(_PDFDocRef), _PDFDocRef = NULL;
+    (void)(CGPDFDocumentRelease(_PDFDocRef)), _PDFDocRef = NULL;
 }
 
 #if (READER_DISABLE_RETINA == TRUE) // Option
