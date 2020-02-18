@@ -48,7 +48,7 @@
 {
 	mainWindow = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds]; // Main application window
 
-	mainWindow.backgroundColor = [UIColor grayColor]; // Neutral gray window background color
+	mainWindow.backgroundColor = [UIColor systemGrayColor]; // Neutral gray window background color
 
 	NSString *phrase = nil; // Document password (for unlocking most encrypted PDF files)
 

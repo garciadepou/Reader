@@ -326,7 +326,7 @@
 
 	assert(document != nil); // Must have a valid ReaderDocument
 
-	self.view.backgroundColor = [UIColor grayColor]; // Neutral gray
+	self.view.backgroundColor = [UIColor systemGrayColor]; // Neutral gray
 
 	UIView *fakeStatusBar = nil; CGRect viewRect = self.view.bounds; // View bounds
 
@@ -337,7 +337,11 @@
 			CGRect statusBarRect = viewRect; statusBarRect.size.height = STATUS_HEIGHT;
 			fakeStatusBar = [[UIView alloc] initWithFrame:statusBarRect]; // UIView
 			fakeStatusBar.autoresizingMask = UIViewAutoresizingFlexibleWidth;
-			fakeStatusBar.backgroundColor = [UIColor blackColor];
+#if __IPHONE_OS_VERSION_MIN_REQUIRED >= 130000
+			fakeStatusBar.backgroundColor = [UIColor systemBackgroundColor];
+#else
+            fakeStatusBar.backgroundColor = [UIColor blackColor];
+#endif
 			fakeStatusBar.contentMode = UIViewContentModeRedraw;
 			fakeStatusBar.userInteractionEnabled = NO;
 

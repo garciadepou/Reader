@@ -78,7 +78,12 @@
 	UILabel *tapLabel = [[UILabel alloc] initWithFrame:labelRect];
 
 	tapLabel.text = NSLocalizedString(@"Tap", @"text");
-	tapLabel.textColor = [UIColor whiteColor];
+	
+    if (@available(iOS 13, *))
+        tapLabel.textColor = [UIColor labelColor];
+    else
+        tapLabel.textColor = [UIColor whiteColor];
+    
 	tapLabel.textAlignment = NSTextAlignmentCenter;
 	tapLabel.backgroundColor = [UIColor clearColor];
 	tapLabel.font = [UIFont systemFontOfSize:24.0f];

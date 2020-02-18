@@ -52,7 +52,7 @@
 
 	navigationController = [[UINavigationController alloc] initWithRootViewController:readerDemoController];
 
-	mainWindow.backgroundColor = [UIColor grayColor]; // Neutral gray window background color
+	mainWindow.backgroundColor = [UIColor systemGrayColor]; // Neutral gray window background color
 
 	navigationController.navigationBar.barStyle = UIBarStyleBlack; navigationController.navigationBar.translucent = YES;
 
