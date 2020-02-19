@@ -184,7 +184,7 @@
 
 					UIButton *emailButton = [UIButton buttonWithType:UIButtonTypeCustom];
 					emailButton.frame = CGRectMake(rightButtonX, BUTTON_Y, iconButtonWidth, BUTTON_HEIGHT);
-					[emailButton setImage:[UIImage imageNamed:@"Reader-Email"] forState:UIControlStateNormal];
+					[emailButton setImage:[UIImage imageNamed:@"Reader-Email" inBundle:[NSBundle bundleForClass:[self class]] compatibleWithTraitCollection:nil] forState:UIControlStateNormal];
 					[emailButton addTarget:self action:@selector(emailButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
 					[emailButton setBackgroundImage:buttonH forState:UIControlStateHighlighted];
 					[emailButton setBackgroundImage:buttonN forState:UIControlStateNormal];
