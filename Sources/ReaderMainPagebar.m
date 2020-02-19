@@ -156,7 +156,14 @@
 
 		if ([self.layer isKindOfClass:[CAGradientLayer class]])
 		{
-			self.backgroundColor = [UIColor clearColor];
+            if (@available(iOS 13, *))
+            {
+                self.backgroundColor = [UIColor systemBackgroundColor];
+            }
+            else
+            {
+                self.backgroundColor = [UIColor clearColor];
+            }
 
 			CAGradientLayer *layer = (CAGradientLayer *)self.layer;
 			UIColor *liteColor = [UIColor colorWithWhite:0.82f alpha:0.8f];

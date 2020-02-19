@@ -48,7 +48,7 @@
 #define BUTTON_FONT_SIZE 15.0f
 #define TEXT_BUTTON_PADDING 24.0f
 
-#define ICON_BUTTON_WIDTH 40.0f
+#define ICON_BUTTON_WIDTH 30.0f
 
 #define TITLE_FONT_SIZE 19.0f
 #define TITLE_HEIGHT 28.0f
@@ -72,7 +72,7 @@
 	{
         if (@available(iOS 13, *))
         {
-            self.backgroundColor = [UIColor systemGray3Color];
+            self.backgroundColor = [UIColor systemBackgroundColor];
         }
 
 		CGFloat viewWidth = self.bounds.size.width; // Toolbar view width
@@ -94,7 +94,7 @@
 
 #if (READER_STANDALONE == FALSE) // Option
 
-		UIFont *doneButtonFont = [UIFont systemFontOfSize:BUTTON_FONT_SIZE];
+		UIFont *doneButtonFont = [UIFont boldSystemFontOfSize:BUTTON_FONT_SIZE];
 		NSString *doneButtonText = NSLocalizedString(@"Done", @"button text");
 		CGSize doneButtonSize = [doneButtonText sizeWithAttributes:@{NSFontAttributeName : doneButtonFont}];
 		CGFloat doneButtonWidth = (ceil(doneButtonSize.width) + TEXT_BUTTON_PADDING);
@@ -104,8 +104,8 @@
         
         if (@available(iOS 13, *))
         {
-            [doneButton setTitleColor:[UIColor secondaryLabelColor] forState:UIControlStateNormal];
-            [doneButton setTitleColor:[UIColor labelColor] forState:UIControlStateHighlighted];
+            [doneButton setTitleColor:[UIColor labelColor] forState:UIControlStateNormal];
+            [doneButton setTitleColor:[UIColor secondaryLabelColor] forState:UIControlStateHighlighted];
         }
         else
         {

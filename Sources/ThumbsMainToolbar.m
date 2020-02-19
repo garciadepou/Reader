@@ -60,6 +60,16 @@
 {
 	if ((self = [super initWithFrame:frame]))
 	{
+        
+        if (@available(iOS 13, *))
+        {
+            self.backgroundColor = [UIColor systemBackgroundColor];
+        }
+        else
+        {
+            self.backgroundColor = [UIColor clearColor];
+        }
+        
 		CGFloat viewWidth = self.bounds.size.width; // Toolbar view width
 
 #if (READER_FLAT_UI == TRUE) // Option
@@ -77,15 +87,23 @@
 
 		CGFloat leftButtonX = BUTTON_X; // Left-side button start X position
 
-		UIFont *doneButtonFont = [UIFont systemFontOfSize:BUTTON_FONT_SIZE];
+		UIFont *doneButtonFont = [UIFont boldSystemFontOfSize:BUTTON_FONT_SIZE];
 		NSString *doneButtonText = NSLocalizedString(@"Done", @"button text");
 		CGSize doneButtonSize = [doneButtonText sizeWithAttributes:@{NSFontAttributeName : doneButtonFont}];
 		CGFloat doneButtonWidth = (ceil(doneButtonSize.width) + TEXT_BUTTON_PADDING);
 
 		UIButton *doneButton = [UIButton buttonWithType:UIButtonTypeCustom];
 		doneButton.frame = CGRectMake(leftButtonX, BUTTON_Y, doneButtonWidth, BUTTON_HEIGHT);
-		[doneButton setTitleColor:[UIColor colorWithWhite:0.0f alpha:1.0f] forState:UIControlStateNormal];
-		[doneButton setTitleColor:[UIColor colorWithWhite:1.0f alpha:1.0f] forState:UIControlStateHighlighted];
+        if (@available(iOS 13, *))
+        {
+            [doneButton setTitleColor:[UIColor labelColor] forState:UIControlStateNormal];
+            [doneButton setTitleColor:[UIColor secondaryLabelColor] forState:UIControlStateHighlighted];
+        }
+        else
+        {
+            [doneButton setTitleColor:[UIColor colorWithWhite:0.0f alpha:1.0f] forState:UIControlStateNormal];
+            [doneButton setTitleColor:[UIColor colorWithWhite:1.0f alpha:1.0f] forState:UIControlStateHighlighted];
+        }
 		[doneButton setTitle:doneButtonText forState:UIControlStateNormal]; doneButton.titleLabel.font = doneButtonFont;
 		[doneButton addTarget:self action:@selector(doneButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
 		[doneButton setBackgroundImage:buttonH forState:UIControlStateHighlighted];
@@ -136,7 +154,16 @@
 			titleLabel.autoresizingMask = UIViewAutoresizingFlexibleWidth;
 			titleLabel.baselineAdjustment = UIBaselineAdjustmentAlignCenters;
 			titleLabel.textColor = [UIColor colorWithWhite:0.0f alpha:1.0f];
-			titleLabel.backgroundColor = [UIColor clearColor];
+            
+            if (@available(iOS 13, *))
+            {
+                titleLabel.backgroundColor = [UIColor systemBackgroundColor];
+            }
+            else
+            {
+                titleLabel.backgroundColor = [UIColor clearColor];
+            }
+            
 			titleLabel.adjustsFontSizeToFitWidth = YES;
 			titleLabel.minimumScaleFactor = 0.75f;
 			titleLabel.text = title;
