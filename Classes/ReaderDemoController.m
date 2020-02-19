@@ -189,7 +189,10 @@
 #else // present in a modal view controller
 
 		readerViewController.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
-		readerViewController.modalPresentationStyle = UIModalPresentationFullScreen;
+        if (@available(iOS 13, *))
+            readerViewController.modalPresentationStyle = UIModalPresentationAutomatic;
+        else
+            readerViewController.modalPresentationStyle = UIModalPresentationFullScreen;
 
 		[self presentViewController:readerViewController animated:YES completion:NULL];
 

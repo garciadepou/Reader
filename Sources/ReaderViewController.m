@@ -715,7 +715,10 @@
 	thumbsViewController.title = self.title; thumbsViewController.delegate = self; // ThumbsViewControllerDelegate
 
 	thumbsViewController.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
-	thumbsViewController.modalPresentationStyle = UIModalPresentationFullScreen;
+    if (@available(iOS 13, *))
+        thumbsViewController.modalPresentationStyle = UIModalPresentationAutomatic;
+    else
+        thumbsViewController.modalPresentationStyle = UIModalPresentationFullScreen;
 
 	[self presentViewController:thumbsViewController animated:NO completion:NULL];
 
