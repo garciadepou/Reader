@@ -7,14 +7,13 @@
     },
     {
       "idiom" : "universal",
-      "filename" : "icons8-thumbnails-50-2.png",
+      "scale" : "1x",
       "appearances" : [
         {
           "appearance" : "luminosity",
           "value" : "dark"
         }
-      ],
-      "scale" : "1x"
+      ]
     },
     {
       "idiom" : "universal",
@@ -23,14 +22,13 @@
     },
     {
       "idiom" : "universal",
-      "filename" : "icons8-thumbnails-100-2.png",
+      "scale" : "2x",
       "appearances" : [
         {
           "appearance" : "luminosity",
           "value" : "dark"
         }
-      ],
-      "scale" : "2x"
+      ]
     },
     {
       "idiom" : "universal",
@@ -39,14 +37,13 @@
     },
     {
       "idiom" : "universal",
-      "filename" : "icons8-thumbnails-100-3.png",
+      "scale" : "3x",
       "appearances" : [
         {
           "appearance" : "luminosity",
           "value" : "dark"
         }
-      ],
-      "scale" : "3x"
+      ]
     }
   ],
   "info" : {

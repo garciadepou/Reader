@@ -46,6 +46,7 @@
 		45BD5AFE13AE721A00D6FE97 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45BD5AFD13AE721A00D6FE97 /* MessageUI.framework */; };
 		45D5ADA31610EADD00706B9A /* ReaderDocumentOutline.m in Sources */ = {isa = PBXBuildFile; fileRef = 45D5ADA21610EADC00706B9A /* ReaderDocumentOutline.m */; };
 		66018CF923FD43D600E03FA2 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 66018CF823FD43D600E03FA2 /* Images.xcassets */; };
+		6690837F23FED8A500DE4380 /* vfrReader.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 6690837E23FED8A400DE4380 /* vfrReader.podspec */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -121,6 +122,7 @@
 		45D5ADA21610EADC00706B9A /* ReaderDocumentOutline.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ReaderDocumentOutline.m; path = Sources/ReaderDocumentOutline.m; sourceTree = "<group>"; };
 		66018CF823FD43D600E03FA2 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		6690837D23FED80E00DE4380 /* ca */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ca; path = Resources/ca.lproj/Localizable.strings; sourceTree = "<group>"; };
+		6690837E23FED8A400DE4380 /* vfrReader.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = vfrReader.podspec; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* Reader-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Reader-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -190,6 +192,7 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				6690837E23FED8A400DE4380 /* vfrReader.podspec */,
 				4541A9D7122EA716001A5E60 /* Localizable.strings */,
 				4524A6EF1C5011D700D7DF7F /* Reader-App.storyboard */,
 				45AB72DF141FC04B003524C3 /* README.md */,
@@ -368,6 +371,7 @@
 				4524A6EE1C500F2F00D7DF7F /* AppIcon-167.png in Resources */,
 				66018CF923FD43D600E03FA2 /* Images.xcassets in Resources */,
 				4513ACFB19C4A1FB004916D1 /* AppIcon-180.png in Resources */,
+				6690837F23FED8A500DE4380 /* vfrReader.podspec in Resources */,
 				45AB72DC141FC039003524C3 /* Reader.pdf in Resources */,
 				4524A6F01C5011D700D7DF7F /* Reader-App.storyboard in Resources */,
 				4544394917FDD5E700781873 /* AppIcon-120.png in Resources */,
@@ -434,14 +438,14 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 2.8.8.gdp.7;
+				CURRENT_PROJECT_VERSION = 2.8.8.gdp.8;
 				DEVELOPMENT_TEAM = 9T9Q7P4SSX;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Reader-Prefix.pch";
 				INFOPLIST_FILE = "Reader-Info.plist";
-				MARKETING_VERSION = 2.8.8.gdp.7;
+				MARKETING_VERSION = 2.8.8.gdp.8;
 				PRODUCT_BUNDLE_IDENTIFIER = com.garciadepou.Reader;
 				PRODUCT_NAME = Reader;
 			};
@@ -453,12 +457,12 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				COPY_PHASE_STRIP = YES;
-				CURRENT_PROJECT_VERSION = 2.8.8.gdp.7;
+				CURRENT_PROJECT_VERSION = 2.8.8.gdp.8;
 				DEVELOPMENT_TEAM = 9T9Q7P4SSX;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Reader-Prefix.pch";
 				INFOPLIST_FILE = "Reader-Info.plist";
-				MARKETING_VERSION = 2.8.8.gdp.7;
+				MARKETING_VERSION = 2.8.8.gdp.8;
 				PRODUCT_BUNDLE_IDENTIFIER = com.garciadepou.Reader;
 				PRODUCT_NAME = Reader;
 				VALIDATE_PRODUCT = YES;
@@ -512,12 +516,12 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				COPY_PHASE_STRIP = YES;
-				CURRENT_PROJECT_VERSION = 2.8.8.gdp.7;
+				CURRENT_PROJECT_VERSION = 2.8.8.gdp.8;
 				DEVELOPMENT_TEAM = 9T9Q7P4SSX;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Reader-Prefix.pch";
 				INFOPLIST_FILE = "Reader-Info.plist";
-				MARKETING_VERSION = 2.8.8.gdp.7;
+				MARKETING_VERSION = 2.8.8.gdp.8;
 				PRODUCT_BUNDLE_IDENTIFIER = com.garciadepou.Reader;
 				PRODUCT_NAME = Reader;
 			};
