@@ -106,8 +106,8 @@
         
         if (@available(iOS 13, *))
         {
-            [doneButton setTitleColor:[UIColor labelColor] forState:UIControlStateNormal];
-            [doneButton setTitleColor:[UIColor secondaryLabelColor] forState:UIControlStateHighlighted];
+            [doneButton setTitleColor:[UIColor linkColor] forState:UIControlStateNormal];
+            [doneButton setTitleColor:[[UIColor linkColor] colorWithAlphaComponent:.5f] forState:UIControlStateHighlighted];
         }
         else
         {
