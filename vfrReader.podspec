@@ -1,12 +1,12 @@
 Pod::Spec.new do |s|
   s.name             = "vfrReader"
-  s.version          = "2.8.8.gdp.11"
+  s.version          = "2.8.8.gdp.12"
   s.summary          = "PDF Reader Core for iOS"
   s.homepage         = "http://www.vfr.org/"
   s.license          = 'MIT'
   s.author           = { "Julius Oklamcak": "joklamcak@gmail.com" }
   s.source           = { :git => "https://github.com/garciadepou/Reader.git", :tag => s.version }
-  s.platform     = :ios
+  s.platform     = :ios, '12.0'
   s.requires_arc = true
   s.source_files = 'Sources/**/*.{h,m}'
   s.resources = '*.xcassets'
