@@ -131,7 +131,10 @@
 
 	@try // Unarchive an archived ReaderDocument object from its property list
 	{
-		document = [NSKeyedUnarchiver unarchiveObjectWithFile:archiveFilePath];
+		//document = [NSKeyedUnarchiver unarchiveObjectWithFile:archiveFilePath];
+        
+        NSData *data = [NSData dataWithContentsOfFile:archiveFilePath];
+        document = [NSKeyedUnarchiver unarchivedObjectOfClass:[ReaderDocument class] fromData:data error:nil];
 
 		if (document != nil) // Set the document's file path and password properties
 		{
@@ -275,8 +278,12 @@
 - (BOOL)archiveDocumentProperties
 {
 	NSString *archiveFilePath = [ReaderDocument archiveFilePath:[self fileName]];
+    
+    NSError *error = nil;
+    NSData *data = [NSKeyedArchiver archivedDataWithRootObject:self requiringSecureCoding:NO error:&error];
+    return [data writeToFile:archiveFilePath options:NSDataWritingAtomic error:&error];
 
-	return [NSKeyedArchiver archiveRootObject:self toFile:archiveFilePath];
+	//return [NSKeyedArchiver archiveRootObject:self toFile:archiveFilePath];
 }
 
 - (void)updateDocumentProperties

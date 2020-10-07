@@ -6,7 +6,7 @@ Pod::Spec.new do |s|
   s.license          = 'MIT'
   s.author           = { "Julius Oklamcak": "joklamcak@gmail.com" }
   s.source           = { :git => "https://github.com/garciadepou/Reader.git", :tag => s.version }
-  s.platform     = :ios, '9.3'
+  s.platform     = :ios
   s.requires_arc = true
   s.source_files = 'Sources/**/*.{h,m}'
   s.resources = '*.xcassets'

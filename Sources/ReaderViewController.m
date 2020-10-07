@@ -568,13 +568,16 @@
 							url = [NSURL URLWithString:http]; // Proper http-based URL
 						}
 					}
+                    
+                    [[UIApplication sharedApplication] openURL:url options:@{} completionHandler:^(BOOL success) {
+                        if (!success)
+                        {
+#ifdef DEBUG
+                            NSLog(@"%s '%@'", __FUNCTION__, url); // Bad or unknown URL
+#endif
+                        }
+                    }];
 
-					if ([[UIApplication sharedApplication] openURL:url] == NO)
-					{
-						#ifdef DEBUG
-							NSLog(@"%s '%@'", __FUNCTION__, url); // Bad or unknown URL
-						#endif
-					}
 				}
 				else // Not a URL, so check for another possible object type
 				{
@@ -755,7 +758,7 @@
 
 			printInteraction.printInfo = printInfo;
 			printInteraction.printingItem = fileURL;
-			printInteraction.showsPageRange = YES;
+			//printInteraction.showsPageRange = YES;
 
 			if (userInterfaceIdiom == UIUserInterfaceIdiomPad) // Large device printing
 			{
